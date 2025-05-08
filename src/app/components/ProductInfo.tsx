@@ -4,13 +4,13 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, ShoppingCart, Award, Check, Info } from "lucide-react";
 import Image from "next/image";
-import fot from "/images/fot.png";
+import fot from "../../../public/images/fot.png";
 
 export default function ProductInfo() {
     const [isVisible, setIsVisible] = useState(false);
     const [activeTab, setActiveTab] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-    const featuresRef = useRef(null);
+    const featuresRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const checkScreenSize = () => {

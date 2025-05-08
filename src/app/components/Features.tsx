@@ -170,24 +170,33 @@ export default function Features() {
             ></motion.div>
 
             {/* Мелкие частицы */}
-            {[...Array(8)].map((_, i) => (
+            {[
+                { top: '25%', left: '10%' },
+                { top: '35%', left: '85%' },
+                { top: '45%', left: '25%' },
+                { top: '55%', left: '75%' },
+                { top: '65%', left: '15%' },
+                { top: '75%', left: '65%' },
+                { top: '85%', left: '35%' },
+                { top: '15%', left: '55%' }
+            ].map((position, i) => (
                 <motion.div
                     key={i}
                     className="absolute w-4 h-4 rounded-full bg-white/80 blur-sm"
                     style={{
-                        top: `${20 + Math.random() * 60}%`,
-                        left: `${Math.random() * 100}%`,
+                        top: position.top,
+                        left: position.left,
                     }}
                     animate={{
-                        x: [0, Math.random() * 50 - 25],
-                        y: [0, Math.random() * 30 - 15],
+                        x: [0, 10, 0],
+                        y: [0, 10, 0],
                         opacity: [0.4, 0.8, 0.4]
                     }}
                     transition={{
-                        duration: 5 + Math.random() * 10,
+                        duration: 5 + i * 2,
                         ease: "easeInOut",
                         repeat: Infinity,
-                        delay: Math.random() * 5
+                        delay: i * 0.5
                     }}
                 />
             ))}

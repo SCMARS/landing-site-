@@ -1,0 +1,21 @@
+{
+  "name": "Таблетована сіль | Преміум якість",
+  "short_name": "Таблетована сіль",
+  "description": "Відкрийте для себе унікальний смак та корисні властивості натуральної таблетованої солі",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
