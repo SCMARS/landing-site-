@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight, User } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight, User, MessageCircle } from "lucide-react";
 
 export default function Reviews() {
     const [isVisible, setIsVisible] = useState(false);
@@ -238,9 +238,15 @@ export default function Reviews() {
                     variants={itemVariants}
                     className="mt-8 sm:mt-10 text-center"
                 >
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all font-medium">
+                    <a
+                        href="http://t.me/solfias_bot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all font-medium"
+                    >
+                        <MessageCircle className="mr-2" size={20} />
                         Залишити відгук
-                    </button>
+                    </a>
                 </motion.div>
             </motion.div>
         </section>

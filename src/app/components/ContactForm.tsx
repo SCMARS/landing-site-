@@ -1,8 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, Mail, Phone, User, MessageSquare } from 'lucide-react'
+import { Send, Mail, Phone, User, MessageSquare, MessageCircle } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS with your public key
+emailjs.init("-j1Fh_CLrCOK3u27J")
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,18 +18,39 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
+    setErrorMessage('')
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', phone: '', message: '' })
-    } catch (error) {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        to_name: 'Gleb',
+      }
+
+      const response = await emailjs.send(
+        'service_qhx09ai', // Your Gmail service ID
+        'template_97afpjb', // Your template ID
+        templateParams
+      )
+
+      if (response.status === 200) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        throw new Error('Failed to send email')
+      }
+    } catch (error: any) {
+      console.error('Error sending email:', error)
       setSubmitStatus('error')
+      setErrorMessage(error.message || 'Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -67,9 +92,22 @@ export default function ContactForm() {
             Зв'яжіться з нами
           </h2>
           <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-400 rounded-full mb-6"></div>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-gray-600 max-w-xl mx-auto mb-8">
             Маєте питання? Напишіть нам, і ми з радістю допоможемо вам
           </p>
+          
+          {/* Telegram Bot Button */}
+          <motion.a
+            href="http://t.me/solfias_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 mb-8 text-white bg-[#0088cc] hover:bg-[#0077b3] rounded-lg transition-colors duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MessageCircle className="mr-2" size={20} />
+            Написати в Telegram
+          </motion.a>
         </motion.div>
 
         <motion.div
@@ -247,7 +285,7 @@ export default function ContactForm() {
                     exit={{ opacity: 0, y: -10 }}
                     className="text-red-600 text-center bg-red-50 p-4 rounded-lg"
                   >
-                    Виникла помилка. Будь ласка, спробуйте ще раз.
+                    {errorMessage || 'Виникла помилка. Будь ласка, спробуйте ще раз.'}
                   </motion.div>
                 )}
               </AnimatePresence>

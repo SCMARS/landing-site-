@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, ShoppingCart, Award, Check, Info } from "lucide-react";
+import { ChevronRight, ShoppingCart, Award, Check, Info, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import fot from "../../../public/images/fot.png";
 
@@ -170,15 +170,18 @@ export default function ProductInfo() {
 
                         {/* Buttons */}
                         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <motion.button
+                            <motion.a
+                                href="http://t.me/solfias_bot"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
                                 className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-400 text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
                             >
-                                <ShoppingCart className="mr-2" size={18} />
+                                <MessageCircle className="mr-2" size={18} />
                                 Придбати зараз
-                            </motion.button>
+                            </motion.a>
                             <motion.button
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.03 }}

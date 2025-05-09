@@ -7,6 +7,10 @@ import Reviews from "@/app/components/Reviews";
 import Cart from "@/app/components/Cart";
 import ContactForm from "@/app/components/ContactForm";
 import Analytics from "@/app/components/Analytics";
+import WhyChooseUs from "@/app/components/WhyChooseUs";
+
+// Enable static generation for this page
+export const dynamic = 'force-static';
 
 export default function Home() {
     return (
@@ -14,6 +18,7 @@ export default function Home() {
             <Analytics />
             <Hero />
             <ProductInfo />
+            <WhyChooseUs />
             <Features />
             <HowToOrder />
             <Reviews />
