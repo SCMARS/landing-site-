@@ -5,9 +5,16 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Landing Shop',
-  description: 'Ваш онлайн магазин',
-  metadataBase: new URL('http://localhost:3002'),
+  title: 'Таблетована сіль вищої якості | Водоочищення та водом\'якшення',
+  description: 'Таблетована сіль преміум якості для систем водоочищення, промислових котлів та харчових виробництв. Доставка по всій Україні. Чистота 99.8%.',
+  keywords: 'таблетована сіль, водоочищення, водом\'якшення, промислові котли, харчові виробництва, Україна',
+  metadataBase: new URL('https://your-domain.com'),
+  openGraph: {
+    title: 'Таблетована сіль вищої якості',
+    description: 'Ідеальне рішення для водоочищення та промислових потреб',
+    type: 'website',
+    locale: 'uk_UA',
+  },
   icons: {
     icon: '/icons/favicon.ico',
     apple: '/icons/icon-192x192.png',

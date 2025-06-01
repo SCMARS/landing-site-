@@ -7,7 +7,7 @@ import { MousePointerClick, MessageSquare, Truck, Check, ShoppingCart } from "lu
 export default function HowToOrder() {
     const [isVisible, setIsVisible] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const [hoveredStep, setHoveredStep] = useState(null);
+    const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
     // Перевірка розміру екрану для адаптивного дизайну
     useEffect(() => {
@@ -138,8 +138,8 @@ export default function HowToOrder() {
                                     </div>
                                     <span
                                         className={`
-                                            w-8 h-8 rounded-full absolute top-12 right-4 
-                                            flex items-center justify-center font-bold text-sm 
+                                            w-8 h-8 rounded-full absolute top-12 right-4
+                                            flex items-center justify-center font-bold text-sm
                                             bg-blue-600 text-white shadow-md
                                         `}
                                     >

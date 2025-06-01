@@ -1,11 +1,11 @@
 {
-  "name": "Landing Shop",
-  "short_name": "Landing Shop",
-  "description": "Your online shop landing page",
+  "name": "Таблетована сіль вищої якості",
+  "short_name": "Таблетована сіль",
+  "description": "Таблетована сіль для водоочищення та промислових потреб",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#2563eb",
   "icons": [
     {
       "src": "/icons/favicon.ico",
@@ -23,4 +23,4 @@
       "sizes": "512x512"
     }
   ]
-} 
+}

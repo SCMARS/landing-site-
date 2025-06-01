@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Mail, Phone, User, MessageSquare, MessageCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
@@ -47,10 +47,10 @@ export default function ContactForm() {
       } else {
         throw new Error('Failed to send email')
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error sending email:', error)
       setSubmitStatus('error')
-      setErrorMessage(error.message || 'Failed to send message. Please try again.')
+      setErrorMessage((error as Error).message || 'Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -89,13 +89,13 @@ export default function ContactForm() {
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Зв'яжіться з нами
+            Зв&apos;яжіться з нами
           </h2>
           <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-400 rounded-full mb-6"></div>
           <p className="text-gray-600 max-w-xl mx-auto mb-8">
             Маєте питання? Напишіть нам, і ми з радістю допоможемо вам
           </p>
-          
+
           {/* Telegram Bot Button */}
           <motion.a
             href="http://t.me/solfias_bot"
@@ -127,7 +127,7 @@ export default function ContactForm() {
                       htmlFor="name"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      Ваше ім'я
+                      Ваше ім&apos;я
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -295,4 +295,4 @@ export default function ContactForm() {
       </motion.div>
     </section>
   )
-} 
+}

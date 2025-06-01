@@ -9,8 +9,7 @@ import ContactForm from "@/app/components/ContactForm";
 import Analytics from "@/app/components/Analytics";
 import WhyChooseUs from "@/app/components/WhyChooseUs";
 
-// Enable static generation for this page
-export const dynamic = 'force-static';
+// Default dynamic behavior
 
 export default function Home() {
     return (

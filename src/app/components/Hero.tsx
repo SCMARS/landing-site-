@@ -4,18 +4,18 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Phone, Truck, Award } from "lucide-react";
 
 // Компонент для анимации чисел
-function CountUp({ end, isVisible, className }) {
+function CountUp({ end, isVisible, className }: { end: number; isVisible: boolean; className: string }) {
     const [count, setCount] = useState(0);
-    const frameRef = useRef(null);
+    const frameRef = useRef<number | null>(null);
 
     useEffect(() => {
         if (!isVisible) return;
 
-        let startTime = null;
+        let startTime: number | null = null;
         const duration = 1500; // ms
-        const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
+        const easeOutCubic = (x: number) => 1 - Math.pow(1 - x, 3);
 
-        const animate = (timestamp) => {
+        const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
             const currentCount = Math.floor(end * easeOutCubic(progress));

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight, User, MessageCircle } from "lucide-react";
 
@@ -97,13 +97,13 @@ export default function Reviews() {
     };
 
     // Навігація по відгуках
-    const nextReview = () => {
+    const nextReview = useCallback(() => {
         setActiveIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-    };
+    }, [reviews.length]);
 
-    const prevReview = () => {
+    const prevReview = useCallback(() => {
         setActiveIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-    };
+    }, [reviews.length]);
 
     // Автоматична зміна відгуків
     useEffect(() => {
@@ -112,10 +112,10 @@ export default function Reviews() {
         }, 8000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [nextReview]);
 
     // Функція рендеру зірочок рейтингу
-    const renderStars = (rating) => {
+    const renderStars = (rating: number) => {
         return Array(5).fill(0).map((_, i) => (
             <Star
                 key={i}

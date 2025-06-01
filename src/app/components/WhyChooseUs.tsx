@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
                         Чому обирають нас
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Наша таблетована сіль забезпечує ефективну роботу систем водоочищення та водом'якшення
+                        Наша таблетована сіль забезпечує ефективну роботу систем водоочищення та водом&apos;якшення
                     </p>
                 </motion.div>
 
@@ -117,4 +117,4 @@ export default function WhyChooseUs() {
             </motion.div>
         </section>
     );
-} 
+}

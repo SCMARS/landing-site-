@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, ShoppingCart, Award, Check, Info, MessageCircle } from "lucide-react";
+import { ChevronRight, Award, Check, Info, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import fot from "../../../public/images/fot.png";
 
@@ -203,14 +203,14 @@ export default function ProductInfo() {
                         Як використовувати таблетовану сіль
                     </h3>
                     <p className="text-gray-700 mb-4">
-                        Таблетована сіль ідеально підходить для систем водоочищення, пом'якшувачів води та інших промислових і побутових потреб. Наші таблетки рівномірно розчиняються, забезпечуючи стабільну концентрацію солі.
+                        Таблетована сіль ідеально підходить для систем водоочищення, пом&apos;якшувачів води та інших промислових і побутових потреб. Наші таблетки рівномірно розчиняються, забезпечуючи стабільну концентрацію солі.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
                         <div className="p-3 bg-white rounded-lg shadow-sm">
                             <p className="font-medium text-blue-700">Водоочисні системи</p>
                         </div>
                         <div className="p-3 bg-white rounded-lg shadow-sm">
-                            <p className="font-medium text-blue-700">Пом'якшення води</p>
+                            <p className="font-medium text-blue-700">Пом&apos;якшення води</p>
                         </div>
                         <div className="p-3 bg-white rounded-lg shadow-sm">
                             <p className="font-medium text-blue-700">Промислове використання</p>
